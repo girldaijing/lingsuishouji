@@ -41,7 +41,7 @@ function doProvAndCityRelation(){
 }
 
 //点击li 市值的变化
-$(".province_cnt").delegate("#chooseCity li","click", function(){
+$(".province").delegate("#chooseCity li","click", function(){
 	var ss=$(this).html();
 	var _val=$(this).attr("value");
 	var county = $("#chooseCounty");
@@ -85,7 +85,7 @@ function doCityAndCountyRelation(){
 }
 
 //点击li 县值的变化
-$(".province_cnt").delegate("#chooseCounty li","click", function(){
+$(".province").delegate("#chooseCounty li","click", function(){
 	var ss=$(this).html();
 	var _val=$(this).attr("value");
 	$("#county").html(ss);
