@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../static/css/front.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+</head>
+<style>
+    body {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    input {
+        width: 15px;
+        height: 15px;
+        border: 1px solid red;
+        position: relative;
+    }
+    div span{
+        display: none;
+        width: 10px;
+        height: 6px;
+        border-left: 1px solid blueviolet;
+        border-bottom: 1px solid blueviolet;
+        -webkit-transform: rotate(-45deg);
+        position: absolute;
+        left: 2px;
+        top: 7px;
+    }
+    div input:checked + span{
+        display: block;
+    }
+</style>
+
+<body>
+    <div>
+        
+        <label for="select">
+            <input type="checkbox" id="select">壳牌
+            <span></span>
+        </label>
+      
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<script type="text/javascript" src="static/script/jquery-2.2.0.min.js"></script>
+<style>
+    .musicPlay {
+        width: 2rem;
+        height: 2rem;
+        line-height: 2rem;
+        border-radius: 50%;
+        border: 1.5px solid orange;
+        background-color: rgba(252, 181, 37, 0.2);
+        text-align: center;
+    }
+
+    .musicPlay>img {
+        width: 1rem;
+        -webkit-animation: music 2s linear infinite;
+    }
+
+    .musicPlay>audio {
+        width: 1px;
+        height: 1px;
+        position: absolute;
+    }
+
+    @keyframes music {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .none {
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="music-component">
+        <audio src="static/images/music/music.mp3" id="audio" loop="loop" autoplay="autoplay"></audio>
+        <div class="music musicPlay"><img src="static/images/music/play.png" alt=""> </div>
+        <div class="music musicStop none"><img src="static/images/music/pause.png" alt=""></div>
+    </div>
+</body>
+<script>
+
+    var oAudio = $('#audio')[0];
+    document.addEventListener('DOMContentLoaded', function () {
+        function audioAutoPlay() {
+            oAudio.play();
+            document.addEventListener("WeixinJSBridgeReady", function () {
+                oAudio.play();
+            }, false);
+        }
+        audioAutoPlay();
+    });
+    $(".music").click(function () {
+        if (oAudio.paused) {
+            oAudio.play();
+            $('.musicPlay').show();
+            $('.musicStop').hide();
+        } else {
+            oAudio.pause();
+            $('.musicPlay').hide();
+            $('.musicStop').show();
+        }
+    })
+
+
+</script>
+
+</html>

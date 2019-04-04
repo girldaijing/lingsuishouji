@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.nav {
+    width: 100%;
+    height: 13%;
+    line-height: 80px;
+    overflow: hidden;
+}
+
+.nav ul {
+    padding-top:20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav li {
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.current {
+    border-bottom: 2px solid;
+    border-bottom-color: #1792E5;
+    color: #1792E5;
+}
+.none {
+    display: none;
+}
+.show{
+    display: block;
+}
+.anti{
+    width: 100%;
+    height: 87%;
+   text-align: center;
+}
+</style>
+<body>
+    <div class="nav">
+        <ul>
+            <li class="current">秒</li>
+            <li>重发</li>
+        </ul>
+    </div>
+    <div class="anti">
+         <div >倒计时0123456789倒计时结束后，左右滑动按钮控制WIX滤清器尽可能多的收集致敬卡</div>
+         <div  class="none">手气王排名我瓜分到的：8.88元名称昵称金额次验证手机即可瓜分5万致敬红包手机号验证码获取验证码恭喜您瓜分到了现金红包</div>
+    </div>
+    <script>
+    // window.onload = function () {
+            var lis = document.getElementsByTagName("li");
+            var antis=document.querySelectorAll(".anti>div")
+            for (let i = 0; i < lis.length; i++) {
+                lis[i].onclick = function () {
+                    for (let i = 0; i < lis.length; i++) {
+                        lis[i].className = ""
+                    }
+                    this.className = "current"
+                  for(let i=0;i<antis.length;i++){
+                      antis[i].className="none"
+                  }
+                  antis[i].className="show"
+                }
+            }
+    // }
+    </script>
+</body>
+</html>

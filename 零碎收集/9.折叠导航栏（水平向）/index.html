@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .btn {
+        height: 60px;
+        position: absolute;
+        left: 20px;
+        z-index: 10;
+    }
+
+    .none {
+        display: none;
+    }
+
+    .tab {
+        width: 300px;
+        background: #eee;
+        position: absolute;
+        left: 40px;
+        top: 5px;
+    }
+
+    .coat {
+        width: 200px;
+        margin: 0 auto;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .tab ul {
+        width: 250px;
+        height: 50px;
+        margin: 0 auto;
+
+        white-space: nowrap;
+    }
+
+    .tab ul li {
+        list-style: none;
+        display: inline-block;
+        height: 50px;
+        line-height: 50px;
+        padding: 0 10px;
+    }
+
+    .current {
+        color: blueviolet;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <img src="tab1.png" alt="" class="open btn">
+        <img src="tab2.png" alt="" class="close btn none">
+        <div class="tab none">
+            <div class="coat">
+                <ul>
+                    <li class="current">防伪查询</li>
+                    <li>质量追溯</li>
+                    <li>联系我们</li>
+                    <li>其他</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script>
+        $(function () {
+            $('.btn').on("click", function () {
+                $('.open').fadeToggle(200);
+                $('.close').fadeToggle(200);
+                $('.tab').animate({ width: 'toggle' }, 200)
+            })
+
+            $(".coat").scroll(function () {
+                var width = $(this).width();
+                var nScrollWidth = $(this)[0].scrollWidth;
+                var nScrollLeft = $(this)[0].scrollLeft;
+                if ((nScrollWidth - nScrollLeft) <= width) //往左移到底了
+                {
+                    $(this).css("background", "linear-gradient(to right, rgba(158,158,158,0.7),rgba(255,255,255,0),30%,rgba(255,255,255,0))");
+                }
+                else if (nScrollLeft <= 0) {
+                    $(this).css("background", "linear-gradient(to left, rgba(158,158,158,0.7),rgba(255,255,255,0),30%,rgba(255,255,255,0))");
+                }
+                else {
+                    $(this).css("background", "linear-gradient(to right, rgba(158,158,158,0.7),rgba(255,255,255,0),30%,rgba(255,255,255,0),40%,rgba(255,255,255,0), rgba(158,158,158,0.7))");
+                }
+            });
+        })
+    </script>
+</body>
+
+</html>

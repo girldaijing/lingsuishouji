@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+    <script src="js/cityData.js"></script>
+    <script src="js/city.js"></script>
+
+</head>
+
+<body>
+    <div class="inpu_province">
+        <span class="area">省市区</span>
+        <span class="triange_tip"></span>
+    </div>
+    <div class="province_cnt none">
+        <div class="select_province">
+            <p class="sure_close">确定</p>
+            <div class="select_cnt">
+                <p><span id="province" value="-1">所在省</span></p>
+                <span class="triang1"></span>
+                <p><span id="citys" value="-1">所在市</span></p>
+                <span class="triang2"></span>
+                <p><span id="county" value="-1">所在区</span></p>
+                <span class="triang3"></span>
+            </div>
+            <div class="select_text">
+                <div class="pro">
+                    <ul id="choosePro"></ul>
+                </div>
+                <div class="city">
+                    <ul id="chooseCity"></ul>
+                </div>
+                <div class="country">
+                    <ul id="chooseCounty"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        //选择省市区弹窗
+        $(".inpu_province").click(function () {
+            $(".province_cnt").show().animate({ "bottom": "0" }, 500);
+        })
+
+        $(".sure_close").click(function () {
+            var pro = $("#province").html();
+            var cit = $("#citys").html();
+            var cou = $("#county").html();
+            $(".province_cnt").animate({ "bottom": "-13rem" }, 500);
+            if (pro == "所在省") {
+                $(".inpu_province .area").html("省市区");
+            } else {
+                $(".inpu_province .area").html(pro + cit + cou);
+            }
+        })
+    </script>
+</body>
+
+</html>

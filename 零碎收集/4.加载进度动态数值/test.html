@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <span id="progress"></span><br>
+    <script language="javascript">
+        function doit(oid, n) {
+            var o = document.getElementById(oid);
+            var i = parseInt(o.innerHTML) + 1;
+            if (isNaN(i)) i = 0;
+            o.innerHTML = i.toString() + '%';
+            if (i < n) setTimeout('doit(\'' + oid + '\',' + n + ')', 30);
+
+             //在加载完成后停留3s在跳转到别的页面
+            if (i = 100) {
+                setTimeout(function () {
+                    $(".loading").delay(500).fadeOut(800);
+                    $(".game").delay(700).fadeIn(800);
+                }, 5000)
+            }
+        }
+        doit('progress', 100);
+
+
+    </script>
+</body>
+
+</html>
