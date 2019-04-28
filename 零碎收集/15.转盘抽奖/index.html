@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery-2.2.0.min.js"></script>
+    <script src="roatate.js"></script>
+</head>
+<style>
+    .zhuanpan {
+        width: 200px;
+        height: 200px;
+        margin: 100px;
+        border-radius: 50%;
+        background: rgba(23, 135, 65, 0.1);
+        text-align: center;
+    }
+
+    .zhizhen {
+        position: absolute;
+        top: 171px;
+        left: 182px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: rgba(143, 54, 43, 0.1);
+        text-align: center;
+    }
+
+    .zhizhen::before {
+        display: block;
+        content: "";
+        border: 7px solid transparent;
+        border-bottom-color: darkslateblue;
+        position: absolute;
+        top: -11px;
+        left: 17px;
+    }
+</style>
+
+<body>
+    <div class="zhuanpan">
+        标记
+    </div>
+    <div class="zhizhen">
+        开始
+    </div>
+    <script>
+     $(function () {
+            var chance = 1;
+            var rotateFn = function (awards) {
+                var angles = (parseInt(awards) * 51) - 25;
+                $('.zhuanpan').stopRotate();
+                $('.zhuanpan').rotate({
+                    angle: 0,
+                    animateTo: 2880 - angles, //大盘旋转8圈之后取得角度
+                    duration: 4000, //持续时间10s
+                    callback: function () {
+                     
+                    }
+                })
+            };
+
+            //            var _lock = false; //解锁
+            $('.zhizhen').click(function () {
+                chance--;
+                if (chance < 0) {
+                    return;
+                } else {
+                    rotateFn(4); 
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
